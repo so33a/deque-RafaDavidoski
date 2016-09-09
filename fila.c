@@ -20,16 +20,21 @@ FILA novaFila() {
   return f;
 }
 
-void inserir(FILA f, int e) {
-  if(f->maisAntigo == NULL) {
-    f->maisAntigo = f->maisNovo = novoNo(e, NULL);
+void inseririnicio(FILA f, int e)
+  if(f->noDireita == NULL) {
+    f
+  }
+
+void inserirfinal(FILA f, int e) {
+  if(f->noEsquerda == NULL) {
+    f->noEsquerda = f->noDireita = novoNo(e, NULL);
   } else {
-    f->maisNovo->next = novoNo(e, NULL);
-    f->maisNovo = f->maisNovo->next;
+    f->noDireita->next = novoNo(e, NULL);
+    f->noDireita = f->noDireita->next;
   }
 }
 
-int remover(FILA f){
+int removerfinal(FILA f){
   int x;
   link t;
   if(filaVazia(f)){
@@ -37,12 +42,12 @@ int remover(FILA f){
     return 0;
   }
   
-  x = f->maisAntigo->item;
-  t = f->maisAntigo;
-  f->maisAntigo = f->maisAntigo->next;
+  x = f->noEsquerda->item;
+  t = f->noEsquerda;
+  f->noEsquerda = f->noEsquerda->next;
  
-  if(f->maisAntigo == NULL)
-    f->maisNovo = NULL;
+  if(f->noEsquerda == NULL)
+    f->noDireita = NULL;
 
   free(t);
   return x;
