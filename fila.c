@@ -22,7 +22,13 @@ FILA novaFila() {
 
 void inseririnicio(FILA f, int e)
   if(f->noDireita == NULL) {
-    f
+    f->noDireita = f->noEsquerda = novoNo(e, NULL);
+  } else {
+    link NoNovo = novoNo(e, NULL);
+    NoNovo -> = f->noEsquerda;
+    f->noEsquerda = NoNovo;
+  }
+    
   }
 
 void inserirfinal(FILA f, int e) {
@@ -34,7 +40,7 @@ void inserirfinal(FILA f, int e) {
   }
 }
 
-int removerfinal(FILA f){
+int removerinicio(FILA f){
   int x;
   link t;
   if(filaVazia(f)){
