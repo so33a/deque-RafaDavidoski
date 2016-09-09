@@ -8,8 +8,8 @@ struct node {
 };
 
 typedef struct {
-  link maisEsquerda;
-  link maisDireita;
+  link noEsquerda;
+  link noDireita;
 } * FILA;
 
 link novoNo(int item, link next);
