@@ -14,11 +14,16 @@ int main () {
     printf ("removido: %d \n", remover(alunos));
 
 
-  inserir(alunos, 10);
-  inserir(alunos, 32);
+  inseririnicio(alunos, 14);
+  inserirfinal(alunos, 32);
   
   imprimirFila(alunos);
+  
+  removerinicio(alunos);
+  removerfinal(alunos);
 
+  imprimirFila(alunos); 
+  
   destroiFila(alunos);
   return 0;
 }
