@@ -25,7 +25,7 @@ void inseririnicio(FILA f, int e)
     f->noDireita = f->noEsquerda = novoNo(e, NULL);
   } else {
     link NoNovo = novoNo(e, NULL);
-    NoNovo -> = f->noEsquerda;
+    NoNovo -> next = f->noEsquerda;
     f->noEsquerda = NoNovo;
   }
     
@@ -54,6 +54,33 @@ int removerinicio(FILA f){
  
   if(f->noEsquerda == NULL)
     f->noDireita = NULL;
+    
+  
+
+  free(t);
+  return x;
+}
+
+int removerfinal(FILA f){
+  int x;
+  link t;
+  link atual = f -> noEsquerda ;
+  if(filaVazia(f)){
+    printf ("Erro, a fila esta vazia\n");
+    return 0;
+  }
+  x = f->noDireita->item;
+  t = f->noDireita;
+  while(atual -> next != t )
+  {
+    atual = atual -> next;
+  }
+  atual -> next = NULL;
+  f->noDireita = atual;
+  
+  if(f->noEsquerda == NULL)
+    f->noDireita = NULL;
+    
 
   free(t);
   return x;
